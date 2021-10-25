@@ -162,10 +162,10 @@
 % lek 7
 
 func_name = 'fcn4';
-% func_sol = pi;
+func_sol = pi;
 % func_sol = 1 - cos(4);
 % func_sol = (1/2) - (1/2) * cos(4);
-func_sol = 2 - cos(sqrt(3)) - cos(4)*cos(sqrt(3)) - sin(4)*sin(sqrt(3));
+% func_sol = 2 - cos(sqrt(3)) - cos(4)*cos(sqrt(3)) - sin(4)*sin(sqrt(3));
 
 
 N=1; 
