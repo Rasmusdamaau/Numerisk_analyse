@@ -291,10 +291,13 @@
 % end
 
 % Lek. 8 
-tspan = [0 2*pi];
-y0 = [1 0]';
-F = @(t,y) [0 1; -1 0]*y;
-[tout, yout] = ode23tx(F,tspan,y0);
+% tspan = [0 2*pi];
+% y0 = [1 0]';
+% F = @(t,y) [0 1; -1 0]*y;
+% [tout, yout] = ode23tx(F,tspan,y0);
+
+
+
 
 
 
