@@ -160,135 +160,141 @@
 
 
 % lek 7
+% 
+% func_name = 'fcn4';
+% % func_sol = pi;
+% % func_sol = 1 - cos(4);
+% % func_sol = (1/2) - (1/2) * cos(4);
+% func_sol = 2 - cos(sqrt(3)) - cos(4)*cos(sqrt(3)) - sin(4)*sin(sqrt(3));
+% 
+% 
+% N=1; 
+% L=20;
+% b=zeros(L,1);
+% e=zeros(L-1,1);
+% A=zeros(L,3);
+% exfcn1 = func_sol;
+% for k=1:L
+%     b(k,1)=abs(exfcn1-trapN(func_name,0,1,N));
+%     N=2*N; 
+% end%
+% for k=1:L-1
+%     e(k,1)=abs(b(k,1)/b(k+1,1));
+% end
+% A(:,1)=2.^(0:L-1);
+% A(:,2)=b(:,1);
+% A(2:L,3)=e(:,1);
+% 
+% fprintf('trapez\n')
+% fprintf('%6s %10s %8s\n', 'steps', 'error', 'ratio')
+% fprintf('%6d %12.11f %6.4f\n', A')
+% 
+% % script til at lave fejlvurdering i 
+% % trapezoide-formlen
+% % format short
+% N=1; 
+% L=20;
+% b=zeros(L,1);
+% e=zeros(L-1,1);
+% A=zeros(L,3);
+% exfcn1 = func_sol;
+% for k=1:L
+%     b(k,1)=abs(exfcn1-midpointN(func_name,0,4,N));
+%     N=2*N; 
+% end%
+% for k=1:L-1
+%     e(k,1)=abs(b(k,1)/b(k+1,1));
+% end
+% A(:,1)=2.^(0:L-1);
+% A(:,2)=b(:,1);
+% A(2:L,3)=e(:,1);
+% 
+% fprintf('midpoint\n')
+% fprintf('%6s %10s %8s\n', 'steps', 'error', 'ratio')
+% fprintf('%6d %12.11f %6.4f\n', A')
+% 
+% N=1; 
+% L=20;
+% b=zeros(L,1);
+% e=zeros(L-1,1);
+% A=zeros(L,3);
+% exfcn1 = func_sol;
+% for k=1:L
+%     b(k,1)=abs(exfcn1-simpsonN(func_name,0,4,N));
+%     N=2*N; 
+% end%
+% for k=1:L-1
+%     e(k,1)=abs(b(k,1)/b(k+1,1));
+% end
+% A(:,1)=2.^(0:L-1);
+% A(:,2)=b(:,1);
+% A(2:L,3)=e(:,1);
+% 
+% fprintf('simpson\n')
+% fprintf('%6s %10s %8s\n', 'steps', 'error', 'ratio')
+% fprintf('%6d %12.11f %6.4f\n', A')
+% 
+% function y = fcn4( x )
+% %
+% 
+% y = sin(abs(x - sqrt(3)));
+% 
+% end
+% 
+% 
+% function y = fcn3( x )
+% %
+% 
+% y = x .* sin(x.^2);
+% 
+% end
+% 
+% function y = fcn2( x )
+% %
+% 
+% y = sin(x);
+% 
+% end
+% 
+% function SN=simpsonN(fcn,a,b,N)
+% % beregning af midpoint med N inddelinger
+% h=(b-a)/N;
+% x=a+(1:N-1)*h;
+% M=h*((feval(fcn,(a + b)/2))+sum(feval(fcn,x)));
+% T = h*((feval(fcn,a)+feval(fcn,b))/2+sum(feval(fcn,x)));
+% SN = (2/3) * M + (1/3) * T;
+% end
+% 
+% 
+% function TN=midpointN(fcn,a,b,N)
+% % beregning af midpoint med N inddelinger
+% h=(b-a)/N;
+% x=a+(1:N-1)*h;
+% TN=h*((feval(fcn,(a + b)/2))+sum(feval(fcn,x)));
+% end
+% 
+% function TN=trapN(fcn,a,b,N)
+% % beregning af trapzoidereglen med N inddelinger
+% % NB! fcn skal acceptere vektorinput
+% % NB! NB! ingen fejlcheck i funktionen.
+% % Arne Jensen, 23. marts 2003
+% h=(b-a)/N;
+% x=a+(1:N-1)*h;
+% TN=h*((feval(fcn,a)+feval(fcn,b))/2+sum(feval(fcn,x)));
+% end
+% 
+% function y = fcn1( x )
+% %
+% 
+% y = 4./(1 + x.^2);
+% 
+% end
 
-func_name = 'fcn4';
-% func_sol = pi;
-% func_sol = 1 - cos(4);
-% func_sol = (1/2) - (1/2) * cos(4);
-func_sol = 2 - cos(sqrt(3)) - cos(4)*cos(sqrt(3)) - sin(4)*sin(sqrt(3));
-
-
-N=1; 
-L=20;
-b=zeros(L,1);
-e=zeros(L-1,1);
-A=zeros(L,3);
-exfcn1 = func_sol;
-for k=1:L
-    b(k,1)=abs(exfcn1-trapN(func_name,0,1,N));
-    N=2*N; 
-end%
-for k=1:L-1
-    e(k,1)=abs(b(k,1)/b(k+1,1));
-end
-A(:,1)=2.^(0:L-1);
-A(:,2)=b(:,1);
-A(2:L,3)=e(:,1);
-
-fprintf('trapez\n')
-fprintf('%6s %10s %8s\n', 'steps', 'error', 'ratio')
-fprintf('%6d %12.11f %6.4f\n', A')
-
-% script til at lave fejlvurdering i 
-% trapezoide-formlen
-% format short
-N=1; 
-L=20;
-b=zeros(L,1);
-e=zeros(L-1,1);
-A=zeros(L,3);
-exfcn1 = func_sol;
-for k=1:L
-    b(k,1)=abs(exfcn1-midpointN(func_name,0,4,N));
-    N=2*N; 
-end%
-for k=1:L-1
-    e(k,1)=abs(b(k,1)/b(k+1,1));
-end
-A(:,1)=2.^(0:L-1);
-A(:,2)=b(:,1);
-A(2:L,3)=e(:,1);
-
-fprintf('midpoint\n')
-fprintf('%6s %10s %8s\n', 'steps', 'error', 'ratio')
-fprintf('%6d %12.11f %6.4f\n', A')
-
-N=1; 
-L=20;
-b=zeros(L,1);
-e=zeros(L-1,1);
-A=zeros(L,3);
-exfcn1 = func_sol;
-for k=1:L
-    b(k,1)=abs(exfcn1-simpsonN(func_name,0,4,N));
-    N=2*N; 
-end%
-for k=1:L-1
-    e(k,1)=abs(b(k,1)/b(k+1,1));
-end
-A(:,1)=2.^(0:L-1);
-A(:,2)=b(:,1);
-A(2:L,3)=e(:,1);
-
-fprintf('simpson\n')
-fprintf('%6s %10s %8s\n', 'steps', 'error', 'ratio')
-fprintf('%6d %12.11f %6.4f\n', A')
-
-function y = fcn4( x )
-%
-
-y = sin(abs(x - sqrt(3)));
-
-end
-
-
-function y = fcn3( x )
-%
-
-y = x .* sin(x.^2);
-
-end
-
-function y = fcn2( x )
-%
-
-y = sin(x);
-
-end
-
-function SN=simpsonN(fcn,a,b,N)
-% beregning af midpoint med N inddelinger
-h=(b-a)/N;
-x=a+(1:N-1)*h;
-M=h*((feval(fcn,(a + b)/2))+sum(feval(fcn,x)));
-T = h*((feval(fcn,a)+feval(fcn,b))/2+sum(feval(fcn,x)));
-SN = (2/3) * M + (1/3) * T;
-end
-
-
-function TN=midpointN(fcn,a,b,N)
-% beregning af midpoint med N inddelinger
-h=(b-a)/N;
-x=a+(1:N-1)*h;
-TN=h*((feval(fcn,(a + b)/2))+sum(feval(fcn,x)));
-end
-
-function TN=trapN(fcn,a,b,N)
-% beregning af trapzoidereglen med N inddelinger
-% NB! fcn skal acceptere vektorinput
-% NB! NB! ingen fejlcheck i funktionen.
-% Arne Jensen, 23. marts 2003
-h=(b-a)/N;
-x=a+(1:N-1)*h;
-TN=h*((feval(fcn,a)+feval(fcn,b))/2+sum(feval(fcn,x)));
-end
-
-function y = fcn1( x )
-%
-
-y = 4./(1 + x.^2);
-
-end
+% Lek. 8 
+tspan = [0 2*pi];
+y0 = [1 0]';
+F = @(t,y) [0 1; -1 0]*y;
+[tout, yout] = ode23tx(F,tspan,y0);
 
 
 
