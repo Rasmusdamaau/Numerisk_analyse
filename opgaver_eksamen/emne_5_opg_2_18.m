@@ -8,10 +8,11 @@
 
 nmax = 100;
 n = 2:nmax;
+p = 3/2;
 % kappalo = n.^(1/2);
-kappalo =1 * n.^(3/2);
+kappalo =0.5 * n.^(p);
 % kappahi = 500*n.^3;
-kappahi = 50 * n.^(3/2);
+kappahi = 150 * n.^(p);
 
 shg
 clf reset
@@ -22,7 +23,7 @@ set(h(1:2),'color',[0 2/3 0]);
 set(h(3),'color','blue')
 set(gca,'xtick',[2:2:10 20:20:nmax])
 kappamax = 1.e6;
-axis([2 nmax 2 kappamax])
+axis([2 nmax+10 2 kappamax])
 stop = uicontrol('pos',[20 10 40 25], ...
    'style','toggle','string','stop','value',0);
 hold on
@@ -37,3 +38,5 @@ end
 hold off
 
 set(stop,'val',0,'string','close','callback','close(gcf)')
+
+%%
