@@ -6,3 +6,5 @@ n*t
 e = n/10 - n*t
 eny = n/10 - n*t + 1;
 e < eps
+
+e / eps
