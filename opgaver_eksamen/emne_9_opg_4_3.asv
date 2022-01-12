@@ -40,18 +40,27 @@ k
 
 %% e
 
-
+a = 1;
+b = 2;
 k = 0;
 while abs(b-a) > eps*abs(b)
-x = (a + b)/2;
-if sign(f(x)) == sign(f(b))
-b = x;
-else
-a = x;
+    x = (a + b)/2;
+    if sign(p(x)) == sign(p(b))
+        b = x;
+    else
+        a = x;
+    end
+    k = k + 1;
 end
-k = k + 1;
-end
+a
+k
 
 
 %% f
+
+b = fzerotx(p, [1,2])
+
+[how, points] =fzerogui(p, [1,2])
+
+%% ingen finder miderste rod
 

@@ -58,6 +58,9 @@ k
 
 %% f
 
-fzerotx(p, [1,2])
+b = fzerotx(p, [1,2]);
 
+steps = fzerogui(p, [1,2])
+
+%% ingen finder miderste rod
 
