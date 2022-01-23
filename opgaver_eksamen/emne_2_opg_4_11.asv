@@ -1,4 +1,4 @@
-%% opg. 4.11
+%% opg. 
 
 n = 1;
 while abs(gamma(n + 1) - factorial(n)) < eps

@@ -11,8 +11,9 @@ n/10
 n*t
 e = n/10 - n*t
 eny = n/10 - n*t + 1;
-abs(e) < eps
+e < eps
 
 e / eps
 
 abs(e) < realmin
+abs(e) < realmin * eps
