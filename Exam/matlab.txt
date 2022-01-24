@@ -1,0 +1,8 @@
+3: lugui, en matrix, flere strategier giver vidt forskellige
+4: 
+7: pchiptx, interpgui, runge som motivation
+8: exercise 4.3
+10: exercise 6.6
+18: implementer ligning 7.1
+19:
+20:
