@@ -1,7 +1,7 @@
 %% opg. 4.11
 
 n = 1;
-while abs(gamma(n + 1) - factorial(n)) < eps
+while abs(gamma(n + 1) - factorial(n)) == 0
     n = n +1;
 end
 n

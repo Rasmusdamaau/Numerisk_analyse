@@ -1,9 +1,0 @@
-% quadtxforpi
-
-fprintf('asd')
-% for k = 1:32
-%    tol = 1/2^k;
-%    [Q,fcount] = quadtx(@(x)2./(1+x.^2),-1,1,tol);
-%    error = Q-pi;
-%    disp(tol,error,fcount,-log(tol)/fcount,tol/error)
-% end
