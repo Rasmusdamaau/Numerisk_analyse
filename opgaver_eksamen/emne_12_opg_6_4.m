@@ -7,3 +7,7 @@ for k = 1:15
    fprintf('%e  %e %d \n', ...
      tolerance,err,fcount)
 end
+
+
+%%
+quadgui(@(x)2./(1+x.^2),-1,1,tolerance)
