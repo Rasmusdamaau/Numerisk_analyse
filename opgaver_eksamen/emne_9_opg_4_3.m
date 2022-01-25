@@ -2,17 +2,17 @@
 p = @(x) 816*x.^3 - 3835*x.^2 + 6000*x - 3125;
 pprime = @(x) 3*816*x.^2 - 2*3835*x + 6000;
 
-%% a
+%% a. eksakte rødder
 poly = [816 -3835 6000 -3125];
 r = roots(poly)
 
-%% b
+%% b. plot
 
 fplot(p,[1.43,1.71]);
 hold on, plot(r,zeros(3,1),'o');
 hold off;
 
-%% c
+%% c. newtons metode
 
 xprev = 0;
 x = 1.5;
@@ -24,7 +24,7 @@ while abs(x - xprev) > eps*abs(x)
 end
 k
 
-%% d
+%% d. sekant metode
 
 a=1;
 b=2;
@@ -38,7 +38,7 @@ end
 
 k
 
-%% e
+%% e. bisektion
 
 a = 1;
 b = 2;
@@ -56,7 +56,7 @@ a
 k
 
 
-%% f
+%% f. fzerotx
 
 b = fzerotx(p, [1,2]);
 
